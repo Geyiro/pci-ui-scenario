@@ -4,6 +4,16 @@ import data from "./near-earth-asteroids.json";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
+const dateFormatter = (params: any) => {
+  const dateString = params.value;
+
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  });
+};
+
 const columnDefs: ColDef[] = [
   {
     field: "designation",
@@ -16,6 +26,7 @@ const columnDefs: ColDef[] = [
     headerName: "Discovery Date",
     sortable: true,
     filter: true,
+    valueFormatter: dateFormatter,
   },
   { field: "h_mag", headerName: "H (mag)", sortable: true, filter: true },
   { field: "moid_au", headerName: "MOID (au)", sortable: true, filter: true },
