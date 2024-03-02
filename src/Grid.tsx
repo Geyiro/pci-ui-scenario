@@ -2,6 +2,7 @@ import { AgGridReact } from "ag-grid-react";
 import { ColDef } from "ag-grid-community";
 import data from "./near-earth-asteroids.json";
 import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-enterprise";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
 const dateFormatter = (params: any) => {
@@ -14,15 +15,16 @@ const dateFormatter = (params: any) => {
   });
 };
 
-  const checklistFormatter = (params: any) => {
-    if (params.value === "Y") {
-      return "Yes";
-    } if (params.value === "N"){
-      return "No";
-    }else{
-      return " ";
-    }
+const checklistFormatter = (params: any) => {
+  if (params.value === "Y") {
+    return "Yes";
   }
+  if (params.value === "N") {
+    return "No";
+  } else {
+    return " ";
+  }
+};
 
 const columnDefs: ColDef[] = [
   {
@@ -78,6 +80,8 @@ const NeoGrid = (): JSX.Element => {
         rowData={data}
         columnDefs={columnDefs}
         rowGroupPanelShow={"always"}
+        enableRangeSelection={true}
+        enableRangeHandle={true}
       />
     </div>
   );
