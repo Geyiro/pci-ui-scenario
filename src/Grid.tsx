@@ -14,6 +14,16 @@ const dateFormatter = (params: any) => {
   });
 };
 
+  const checklistFormatter = (params: any) => {
+    if (params.value === "Y") {
+      return "Yes";
+    } if (params.value === "N"){
+      return "No";
+    }else{
+      return " ";
+    }
+  }
+
 const columnDefs: ColDef[] = [
   {
     field: "designation",
@@ -49,6 +59,7 @@ const columnDefs: ColDef[] = [
     headerName: "Potentially Hazardous",
     sortable: true,
     filter: true,
+    valueFormatter: checklistFormatter,
   },
   {
     field: "orbit_class",
