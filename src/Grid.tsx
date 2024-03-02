@@ -15,14 +15,14 @@ const dateFormatter = (params: any) => {
   });
 };
 
-  const checklistFormatter = (params: any) => {
-    if (params.value === "Y") {
-      return "Yes";
-    } if (params.value === "N"){
-      return "No";
-    }else{
-      return " ";
-    }
+const checklistFormatter = (params: any) => {
+  if (params.value === "Y") {
+    return "Yes";
+  }
+  if (params.value === "N") {
+    return "No";
+  } else {
+    return " ";
   }
 };
 
